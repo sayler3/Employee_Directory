@@ -8,6 +8,15 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // setting up database connection for deployment and localhost
+mongoose
+	.connect("mongodb://localhost/directory", {
+		useNewUrlParser: true,
+		useFindAndModify: false,
+		useCreateIndex: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => console.log("MongoDB connected..."))
+	.catch((err) => console.log(err));
 
 // setting up middleware
 if (process.env.NODE_ENV === "production") {
