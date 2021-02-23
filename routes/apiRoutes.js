@@ -1,4 +1,5 @@
 const express = require("express");
+const employee = require("../models/employee");
 const router = express.Router();
 
 //employee model
@@ -21,5 +22,14 @@ module.exports = (router) => {
 			.catch((err) => {
 				res.status(400).json(err);
 			});
+	});
+
+	//delete an employee
+	router.delete("/api/employees/:id", (req, res) => {
+		Employee.findById(req.params.id)
+			.then((employee) =>
+				employee.remove().then(() => res.json({ success: true }))
+			)
+			.catch((err) => res.status(404).json({ success: false }));
 	});
 };
