@@ -1,6 +1,7 @@
 //bring in dependencies
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require("cors");
 
 const app = express();
 
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV === "production") {
 }
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
 // bringing in routes
 require("./routes/apiRoutes")(app);
