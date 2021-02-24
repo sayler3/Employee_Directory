@@ -3,6 +3,7 @@ import NavBar from "./Components/NavBar";
 import Home from "./Pages/Home";
 import Search from "./Pages/Search";
 import Add from "./Pages/Add";
+import TableView from "./Pages/TableView";
 
 function App() {
 	return (
@@ -11,6 +12,7 @@ function App() {
 				<NavBar />
 				<Switch>
 					<Route path="/search" component={Search} />
+					<Route path="/table" component={TableView} />
 					<Route path="/add" component={Add} />
 					<Route path="/" component={Home} />
 				</Switch>
