@@ -11,10 +11,14 @@ const Cards = (props) => {
 			}}
 		>
 			<div
-				className="card-flex container"
-				style={{ display: "flex", alignItems: "center", paddingTop: "20px" }}
+				className="container"
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					paddingTop: "20px",
+				}}
 			>
-				<h3 style={{ textAlign: "center" }}>Pepper Pots</h3>
 				<img
 					style={{ objectFit: "cover", border: "2px solid rgb(208, 208, 208)" }}
 					className="profilePic rounded-circle"
@@ -22,7 +26,10 @@ const Cards = (props) => {
 					alt="profile pic"
 				/>
 			</div>
-			<div style={{ paddingTop: "25px" }} className="container">
+			<div style={{ paddingTop: "10px" }} className="card-flex container">
+				<h3 style={{ textAlign: "center" }}>Pepper Pots</h3>
+			</div>
+			<div style={{ paddingTop: "10px" }} className="container">
 				<p>Cell: (123) 555-1234</p>
 				<p>Email: something@example.com</p>
 				<p>
