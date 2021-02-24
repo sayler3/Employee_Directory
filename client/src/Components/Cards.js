@@ -3,9 +3,10 @@ import React from "react";
 const Cards = (props) => {
 	console.log(props);
 	return (
-		<wrapper>
-			{props.employees.map((employee) => (
+		<>
+			{props.employees.map((employee, index) => (
 				<div
+					key={index}
 					className="card rounded"
 					style={{
 						width: "18rem",
@@ -28,23 +29,27 @@ const Cards = (props) => {
 								border: "2px solid rgb(208, 208, 208)",
 							}}
 							className="profilePic rounded-circle"
-							src={props.src}
+							src={employee.picture.large}
 							alt="profile pic"
 						/>
 					</div>
 					<div style={{ paddingTop: "10px" }} className="card-flex container">
-						<h3 style={{ textAlign: "center" }}>Pepper Pots</h3>
+						<h3 style={{ textAlign: "center" }}>
+							{employee.name.first} {employee.name.last}
+						</h3>
 					</div>
 					<div style={{ paddingTop: "10px" }} className="container">
 						<p>Cell: {employee.cell}</p>
-						<p>Email: something@example.com</p>
+						<p>Email: {employee.email}</p>
 						<p>
-							Address: <br /> 5116 Fairview St <br /> Austin, Utah 79246
+							Address: <br /> {employee.location.street.number}{" "}
+							{employee.location.street.name} <br /> {employee.location.city},{" "}
+							{employee.location.state} {employee.location.postcode}
 						</p>
 					</div>
 				</div>
 			))}
-		</wrapper>
+		</>
 	);
 };
 

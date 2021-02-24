@@ -25,7 +25,15 @@ const Home = () => {
 	return (
 		<div className="container">
 			<h1>All Employees</h1>
-			{employees && <Cards employees={employees} />}
+			<div
+				style={{
+					display: "inline-flex",
+					flexWrap: "wrap",
+					gap: "12px",
+				}}
+			>
+				{employees && <Cards employees={employees} />}
+			</div>
 		</div>
 	);
 };
