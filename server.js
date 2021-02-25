@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 
 // setting up database connection for deployment and localhost
 mongoose
-	.connect("mongodb://localhost/directory", {
+	.connect(process.env.MONGODB_URI || "mongodb://localhost/directory", {
 		useNewUrlParser: true,
 		useFindAndModify: false,
 		useCreateIndex: true,
