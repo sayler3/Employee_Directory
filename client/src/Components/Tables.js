@@ -4,7 +4,6 @@ import "ka-table/style.css";
 import { kaReducer, Table } from "ka-table";
 import { DataType, SortDirection, SortingMode } from "ka-table/enums";
 import { search } from "ka-table/actionCreators";
-import { getSortedColumns } from "ka-table/Utils/PropsUtils";
 
 const Tables = (props) => {
 	const employees = props.employees;
@@ -17,6 +16,7 @@ const Tables = (props) => {
 					src={props.rowData.picture.thumbnail}
 					alt="picture"
 					title="picture"
+					className="rounded-circle"
 				/>
 			</div>
 		);
@@ -28,13 +28,14 @@ const Tables = (props) => {
 				key: "profilePic",
 				title: "",
 				dataType: DataType.String,
-				style: { width: "10%" },
+				style: { width: "8%" },
 			},
 			{
 				key: "name.first",
 				title: "First Name",
 				dataType: DataType.String,
 				style: { width: "10%" },
+				sortDirection: SortDirection.Ascend,
 			},
 			{
 				key: "name.last",
@@ -80,6 +81,7 @@ const Tables = (props) => {
 					dispatch(search(e.currentTarget.value));
 				}}
 				className="search"
+				style={{ marginBottom: 20 }}
 			/>
 			<Table
 				{...tableProps}
@@ -90,6 +92,19 @@ const Tables = (props) => {
 								return <ProfilePic {...props} />;
 							}
 						},
+					},
+					table: {
+						elementAttributes: () => ({
+							className: "table table-striped table-hover table-bordered",
+						}),
+					},
+					tableHead: {
+						elementAttributes: () => ({
+							className: "thead-dark",
+						}),
+					},
+					noDataRow: {
+						content: () => "No Data Found",
 					},
 				}}
 				dispatch={dispatch}
