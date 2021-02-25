@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Tables from "../Components/Tables";
+import Tables from "../Components/Tables/Tables";
 
 const TableView = () => {
 	let response;
@@ -24,7 +24,8 @@ const TableView = () => {
 
 	return (
 		<div className="container">
-			<h1>Table View</h1>
+			<h1 className="d-flex justify-content-center mt-3">Table View</h1>
+			<hr className="mb-4" />
 			{employees && <Tables employees={employees} />}
 		</div>
 	);
