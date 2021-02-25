@@ -3,6 +3,7 @@ import "ka-table/style.css";
 
 import { kaReducer, Table } from "ka-table";
 import { DataType, SortDirection, SortingMode } from "ka-table/enums";
+import { search } from "ka-table/actionCreators";
 import { getSortedColumns } from "ka-table/Utils/PropsUtils";
 
 const Tables = (props) => {
@@ -72,7 +73,14 @@ const Tables = (props) => {
 
 	return (
 		<div className="contianer">
-			<input type="search" />
+			<input
+				placeholder="Search..."
+				type="search"
+				onChange={(e) => {
+					dispatch(search(e.currentTarget.value));
+				}}
+				className="search"
+			/>
 			<Table
 				{...tableProps}
 				childComponents={{
