@@ -9,8 +9,26 @@ const Tables = (props) => {
 	const employees = props.employees;
 	console.log(employees);
 
+	const ProfilePic = (props) => {
+		return (
+			<div className="thumb">
+				<img
+					src={props.rowData.picture.thumbnail}
+					alt="picture"
+					title="picture"
+				/>
+			</div>
+		);
+	};
+
 	const tablePropsInit = {
 		columns: [
+			{
+				key: "profilePic",
+				title: "",
+				dataType: DataType.String,
+				style: { width: "10%" },
+			},
 			{
 				key: "name.first",
 				title: "First Name",
@@ -55,7 +73,19 @@ const Tables = (props) => {
 	return (
 		<div className="contianer">
 			<input type="search" />
-			<Table {...tableProps} dispatch={dispatch} />
+			<Table
+				{...tableProps}
+				childComponents={{
+					cellText: {
+						content: (props) => {
+							if (props.column.key === "profilePic") {
+								return <ProfilePic {...props} />;
+							}
+						},
+					},
+				}}
+				dispatch={dispatch}
+			/>
 		</div>
 	);
 };
