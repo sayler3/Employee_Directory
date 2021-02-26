@@ -11,7 +11,7 @@ const Home = () => {
 		gap: "12px",
 	};
 
-	const [employees, setEmployees] = useState();
+	const [employees, setEmployees] = useState([]);
 
 	useEffect(() => {
 		axios
