@@ -9,6 +9,10 @@ const app = express();
 // setting port for deployment and running localhost
 const PORT = process.env.PORT || 5000;
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+
 // setting up database connection for deployment and localhost
 mongoose
 	.connect(process.env.MONGODB_URI || "mongodb://localhost/directory", {
@@ -28,10 +32,6 @@ if (process.env.NODE_ENV === "production") {
 		res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
 	});
 }
-
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
 
 // bringing in routes
 require("./routes/apiRoutes")(app);
