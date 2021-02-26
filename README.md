@@ -4,15 +4,15 @@
 
 ## Description
 
-This is a full-stack application where the user is able to do the following:
+This is a full-stack application that gives a company or business the ability to access non-sensitive data about their employees, and easily search, filter, sort, add, and update information through their entire directory.
 
 This app has been deployed via Heroku to view click bellow:
 
-[**EMPLOYEE_DIRECTORY**]()
+[**EMPLOYEE_DIRECTORY**](https://employee-directory-s.herokuapp.com/)
 
 ## Demo video
 
-![demo of application]()
+![demo of application](assets/demoVid.gif)
 
 ## Table of Contents
 
@@ -29,15 +29,6 @@ To install all required dependencies, you will need to run the following in the 
 
 ```
 npm install
-```
-
-If you would like to run this program without forking you will need to run the following commands for set up:
-
-```
-npm init -y
-npm i express
-npm i mongoose
-npm i morgan
 ```
 
 ## Usage
