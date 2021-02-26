@@ -1,10 +1,11 @@
 import React from "react";
 
 const Cards = (props) => {
-	console.log(props);
+	const employees = props.employees;
+	console.log(employees);
 	return (
 		<>
-			{props.employees.map((employee, index) => (
+			{employees.map((employee, index) => (
 				<div
 					key={index}
 					className="card rounded"
