@@ -15,7 +15,7 @@ const Home = () => {
 
 	useEffect(() => {
 		axios
-			.get("/api/employees")
+			.get("http://localhost:5000/api/employees")
 			.then((res) => {
 				response = res.data;
 				return response;
