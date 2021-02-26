@@ -21,6 +21,7 @@ const Home = () => {
 				return response;
 			})
 			.then((res) => {
+				console.log("Employee data:", response);
 				setEmployees(res);
 			})
 			.catch((err) => {
