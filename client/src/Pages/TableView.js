@@ -9,7 +9,7 @@ const TableView = () => {
 
 	useEffect(() => {
 		axios
-			.put("/api/employees", null)
+			.put("/api/employees")
 			.then((res) => {
 				response = res.data;
 				return response;
